@@ -36,16 +36,36 @@ void FindEven(int[] MyArray)
 // Задача 36:Задайте массив, заполненный случайными числами.
 // Найдите сумму элементов, стоящих на нечётных позициях.
 
-int result = 0;
  Console.WriteLine("Enter the number of array elements: ");
  int size = Convert.ToInt32(Console.ReadLine());
  int[] array = new int[size];
- for(int i = 0; i < array.Length; i++)
+ FillArrayRandomNumbers(array);
+ Console.WriteLine("This is the array: ");
+ PrintArray(array);
+ int sum = 0;
+
+ for(int i = 1; i < array.Length; i=i+2)
+ 
+        sum = sum + array[i];
+         
+    Console.WriteLine($"The sum of odd array elements is -> {sum}");
+
+ void FillArrayRandomNumbers(int[] array)
  {
-    array[i] = Convert.ToInt32(Console.ReadLine());
+    for(int j = 0; j < array.Length; j++)
+    {
+        array[j] = new Random().Next(1, 100);
+    }
  }
- if (array[i] %2 != 0)
- {
-    result += array[i];
- }
- Console.WriteLine($"The sum of odd array elements is {result}");
+void PrintArray(int[] array)
+{
+    Console.Write("[ ");
+    for(int j = 0; j < array.Length; j++)
+    {
+        Console.Write(array[j] + " ");
+    }
+    Console.Write("]");
+    Console.WriteLine();
+}
+
+ 
