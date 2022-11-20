@@ -35,7 +35,7 @@ void FindEven(int[] MyArray)
 
 // Задача 36:Задайте массив, заполненный случайными числами.
 // Найдите сумму элементов, стоящих на нечётных позициях.
-
+/*
  Console.WriteLine("Enter the number of array elements: ");
  int size = Convert.ToInt32(Console.ReadLine());
  int[] array = new int[size];
@@ -67,5 +67,45 @@ void PrintArray(int[] array)
     Console.Write("]");
     Console.WriteLine();
 }
+*/
 
+// Задача 38: Задайте массив вещественных чисел. Найдите разницу между максимальным и минимальным элементов массива.
+
+//[3.0 7.2 22.7 2.1 78.3] -> 76.2
+
+Console.WriteLine("Enter the size of the array: ");
+int length = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Enter the minimum value of the array: ");
+int min = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Enter the maximum value of the array: ");
+int max = Convert.ToInt32(Console.ReadLine());
+int[] Array = GetArray(length, min, max);
+Console.WriteLine($"[{string.Join(", ", Array)}]");
+FindDifference(Array, max, min);
  
+ int[] GetArray(int size, int minValue, int maxValue)
+ {
+    Random rnd = new Random();
+    int[] result = new int[size];
+    for(int i = 0; i < result.Length; i++)
+    {
+        result[i] = rnd.Next(minValue, maxValue + 1);
+    }
+    return result;
+ }
+
+ void FindDifference(int[] MyArray, int minVal, int maxVal)
+ {
+    for (int i = 0; i < MyArray.Length; i++)
+    {
+        if (MyArray[i] < minVal)
+        {
+            minVal = MyArray[i];
+        }
+        if (MyArray[i] > maxVal)
+        {
+          maxVal = MyArray[i];  
+        }
+    }
+    Console.WriteLine($"Difference between maximum and minimum pattern elements -> {maxVal-minVal}");
+ }
