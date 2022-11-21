@@ -73,7 +73,7 @@ void PrintArray(int[] array)
 
 //[3.0 7.2 22.7 2.1 78.3] -> 76.2
 
-Console.WriteLine("Enter the size of the array: ");
+/*Console.WriteLine("Enter the size of the array: ");
 int length = Convert.ToInt32(Console.ReadLine());
 Console.WriteLine("Enter the minimum value of the array: ");
 int min = Convert.ToInt32(Console.ReadLine());
@@ -108,4 +108,28 @@ FindDifference(Array, max, min);
         }
     }
     Console.WriteLine($"Difference between maximum and minimum pattern elements -> {maxVal-minVal}");
- }
+ }*/
+
+ double RealNumber(double[] array)
+ {
+ double min = array[0];
+double max =array[0];
+
+for(int i = 0; i < array.Length; i++)
+
+    if(array[i] <= min)
+    {
+        min = array[i];
+    }
+for(int j = 0; j < array.Length; j++)
+    if(array[j] >= max)
+    {
+        max = array[j];
+    }
+    return (max - min);
+
+}
+
+double[] array = {3.0, 7.2, 22.7, 2.1, 78.3};
+
+Console.WriteLine($"Difference between maximum and minimum pattern elements -> {RealNumber(array)}");
